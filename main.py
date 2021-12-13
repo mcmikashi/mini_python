@@ -14,8 +14,8 @@ base.geometry("800x400")
 base.iconbitmap('python.ico') #https://github.com/PapirusDevelopmentTeam/
 base.config(bg=blued)
 
-menu = ttk.Notebook(base) # Creation du conteneur d'onglets
-
+# Creation du conteneur d'onglets
+menu = ttk.Notebook(base) 
 menu.pack(fill=BOTH,expand=True)
 
 #Label Frame Fibonacci
