@@ -2,7 +2,7 @@ from functools import wraps
 import tkinter as tk
 from tkinter import ttk
 from tkinter.constants import BOTH
-from package.fibonaci import fibonacci
+from package.fibonacci import fibonacci
 from package.validator import number_valid
 
 # Intialisation des couleurs
@@ -17,6 +17,9 @@ base.title("Mini Python")
 base.geometry("800x400")
 base.iconbitmap("python.ico")  # https://github.com/PapirusDevelopmentTeam/
 base.config(bg=blue_dark)
+
+
+""" les éléments de l'onglet fibonacci """
 
 # Creation du conteneur d'onglets
 menu = ttk.Notebook(base)
@@ -36,7 +39,7 @@ resultat_fibonacci.pack(padx=10, pady=10)
 # fonction affichage
 def affichage_fibonacci():
     nombre = index_fibonacci.get()
-    resultat = fibonacci(int(nombre))
+    resultat = fibonacci(nombre)
     resultat_fibonacci.config(text=resultat, bg=blue_very_ligth, font=25)
 
 
@@ -55,6 +58,8 @@ label_index.grid(row=0, column=0, padx=10, pady=10)
 index_fibonacci.grid(row=0, column=1, padx=10, pady=10)
 submit_fibonacci.grid(row=0, column=2, padx=10, pady=10)
 
+""" les éléments de l'onglet tribonacci """
+
 # Label Frame Tribonacci
 frame_tribonacci = tk.LabelFrame(menu)
 frame_tribonacci.pack()
@@ -70,6 +75,8 @@ index_tribonacci = tk.Entry(
 submit_tribonacci = tk.Button(input_tribonacci, text="Envoyer", command=None)
 index_tribonacci.grid(row=0, column=0, padx=10, pady=10)
 submit_tribonacci.grid(row=0, column=1, padx=10, pady=10)
+
+""" les éléments du menu """
 
 # Ajout des onglets
 menu.add(frame_fibonacci, text="Fibonacci")

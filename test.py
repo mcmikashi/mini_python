@@ -1,6 +1,6 @@
 import unittest
 
-from package.fibonaci import fibonacci
+from package.fibonacci import fibonacci
 
 
 class fibonacciTest(unittest.TestCase):
