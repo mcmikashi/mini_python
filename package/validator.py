@@ -1,4 +1,4 @@
-def number_valid(chaine):
+def number_valid(chaine: str) -> bool:
     """Number Valid :
     Determine if the text in the input is a number between 0 and 493
 
@@ -18,3 +18,7 @@ def number_valid(chaine):
             return False
     except ValueError:
         return False
+
+
+if __name__ == '__main__':
+    pass
