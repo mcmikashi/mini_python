@@ -1,16 +1,6 @@
 import unittest
-
-import sys
-
-from pathlib import Path
-# insert at 1, 0 is the script path (or '' in REPL)
-test_path = Path("module").absolute()
-
-sys.path.append(str(test_path))
-
-print(sys.path)
-
-from fibonaci import fibonacci
+ 
+from package.fibonaci import fibonacci
 
 class fibonacciTest(unittest.TestCase):
     
