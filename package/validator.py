@@ -6,13 +6,13 @@ def number_valid(chaine):
         chaine (str): the input of the user
 
     Returns:
-        [bool]: True if the input of the user is an integer between 0 and 493 else False
+        [bool]: True if the input is an integer between 0 and 493 else False
     """
     try:
-        if chaine=="":
+        if chaine == "":
             return True
         number = int(chaine)
-        if number in range(0,494):
+        if number in range(0, 494):
             return True
         else:
             return False

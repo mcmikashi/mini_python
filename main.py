@@ -2,7 +2,6 @@ from functools import wraps
 import tkinter as tk
 from tkinter import ttk
 from tkinter.constants import BOTH
-from typing_extensions import IntVar
 from package.fibonaci import fibonacci
 from package.validator import number_valid
 
@@ -43,7 +42,7 @@ def affichage_fibonacci():
 
 # button et input fibonacci
 num_valid = base.register(number_valid)
-label_index = tk.Label(input_fibonacci,text="Entrez un index entre 0 et 493")
+label_index = tk.Label(input_fibonacci, text="Entrez un index entre 0 et 493")
 index_fibonacci = tk.Entry(
     input_fibonacci, width=35, validate="key",
     validatecommand=(num_valid, "%P")
