@@ -29,7 +29,4 @@ def tribonacci(index: int) -> int:
         return tribonacci(index-1) + tribonacci(index-2) + tribonacci(index-3)
 
 if __name__ == '__main__':
-    print(tribonacci(0))
-    print(tribonacci(1))
-    print(tribonacci(2))
-    print(tribonacci(3))
+    pass
