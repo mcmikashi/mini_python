@@ -2,6 +2,7 @@ import unittest
 
 from package.fibonacci import fibonacci
 from package.tribonacci import tribonacci
+from package.lucas import lucas
 
 class FibonacciTest(unittest.TestCase):
 
@@ -51,29 +52,29 @@ class TribonacciTest(unittest.TestCase):
         self.assertIsInstance(tribonacci(-100), ValueError)
         self.assertIsInstance(tribonacci(500), ValueError)
 
-class 	LucasNumbersTest(unittest.TestCase):
+class LucasNumbersTest(unittest.TestCase):
 
     def test_vide_zeros_un_deux(self):
-        self.assertEqual(tribonacci(""), 2)
-        self.assertEqual(tribonacci(0), 2)
-        self.assertEqual(tribonacci(1), 1)
-        self.assertEqual(tribonacci(2), 3)
+        self.assertEqual(lucas(""), 2)
+        self.assertEqual(lucas(0), 2)
+        self.assertEqual(lucas(1), 1)
+        self.assertEqual(lucas(2), 3)
 
     def test_basic(self):
-        self.assertEqual(tribonacci(10), 123)
-        self.assertEqual(tribonacci(14), 843)
-        self.assertEqual(tribonacci(19), 9349)
-        self.assertEqual(tribonacci(22), 39603)
-        self.assertEqual(tribonacci(32), 4870847)
-        self.assertEqual(tribonacci(35),  20633239)
-        self.assertEqual(tribonacci(38),  87403803)
+        self.assertEqual(lucas(10), 123)
+        self.assertEqual(lucas(14), 843)
+        self.assertEqual(lucas(19), 9349)
+        self.assertEqual(lucas(22), 39603)
+        self.assertEqual(lucas(32), 4870847)
+        self.assertEqual(lucas(35),  20633239)
+        self.assertEqual(lucas(38),  87403803)
 
     def test_error(self):
-        self.assertIsInstance(tribonacci("-1"), ValueError)
-        self.assertIsInstance(tribonacci("aaaa"), ValueError)
-        self.assertIsInstance(tribonacci(-100), ValueError)
-        self.assertIsInstance(tribonacci(500), ValueError)
-        
+        self.assertIsInstance(lucas("-1"), ValueError)
+        self.assertIsInstance(lucas("aaaa"), ValueError)
+        self.assertIsInstance(lucas(-100), ValueError)
+        self.assertIsInstance(lucas(500), ValueError)
+
 if __name__ == '__main__':
     unittest.main()
     
