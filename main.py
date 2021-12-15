@@ -136,4 +136,5 @@ resultat_lucas.pack(padx=10, pady=10)
 menu.add(frame_fibonacci, text="Fibonacci")
 menu.add(frame_tribonacci, text="Tribonacci")
 menu.add(frame_lucas, text="Lucas Numbers")
+
 base.mainloop()
