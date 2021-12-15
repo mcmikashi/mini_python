@@ -1,9 +1,9 @@
 import unittest
 
 from package.fibonacci import fibonacci
+from package.tribonacci import tribonacci
 
-
-class fibonacciTest(unittest.TestCase):
+class FibonacciTest(unittest.TestCase):
 
     def test_vide_zeros_un_deux(self):
         self.assertEqual(fibonacci(""), 0)
@@ -28,6 +28,28 @@ class fibonacciTest(unittest.TestCase):
         self.assertIsInstance(fibonacci(-100), ValueError)
         self.assertIsInstance(fibonacci(500), ValueError)
 
+class TribonacciTest(unittest.TestCase):
+
+    def test_vide_zeros_un_deux(self):
+        self.assertEqual(tribonacci(""), 0)
+        self.assertEqual(tribonacci(0), 0)
+        self.assertEqual(tribonacci(1), 0)
+        self.assertEqual(tribonacci(2), 1)
+
+    def test_basic(self):
+        self.assertEqual(tribonacci(3), 1)
+        self.assertEqual(tribonacci(6), 7)
+        self.assertEqual(tribonacci(9), 44)
+        self.assertEqual(tribonacci(11), 149)
+        self.assertEqual(tribonacci(16), 3136)
+        self.assertEqual(tribonacci(28),  4700770)
+        self.assertEqual(tribonacci(37),  1132436852)
+
+    def test_error(self):
+        self.assertIsInstance(tribonacci("-1"), ValueError)
+        self.assertIsInstance(tribonacci("aaaa"), ValueError)
+        self.assertIsInstance(tribonacci(-100), ValueError)
+        self.assertIsInstance(tribonacci(500), ValueError)
 
 if __name__ == '__main__':
     unittest.main()
