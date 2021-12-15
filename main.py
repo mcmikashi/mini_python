@@ -6,6 +6,7 @@ from package.fibonacci import fibonacci
 from package.validator import number_valid
 from package.tribonacci import tribonacci
 from package.lucas import lucas
+from package.rabbit import dying_rabbit as rabbit
 
 # Intialisation des couleurs
 blue_dark = "#1d3557"
@@ -130,11 +131,45 @@ submit_lucas.grid(row=0, column=2, padx=10, pady=10)
 resultat_lucas = tk.Label(output_lucas, bg=blue_ligth, wraplength=500)
 resultat_lucas.pack(padx=10, pady=10)
 
+""" les éléments de l'onglet rabbit """
+
+# Label Frame rabbit
+frame_rabbit = tk.LabelFrame(menu)
+frame_rabbit.pack()
+input_rabbit = tk.LabelFrame(frame_rabbit, bg=blue_medium)
+input_rabbit.pack(pady=10)
+output_rabbit = tk.LabelFrame(frame_rabbit, bg=blue_ligth)
+output_rabbit.pack(padx=10, pady=10, fill=BOTH, expand=True)
+
+
+# fonction affichage fibonacci
+def affichage_rabbit():
+    nombre = index_rabbit.get()
+    resultat = rabbit(nombre)
+    resultat_rabbit.config(text=resultat, bg=blue_very_ligth, font=25)
+
+# button,input et label rabbit
+label_index_rabbit = tk.Label(
+    input_rabbit, text="Entrez un index entre 0 et 493"
+)
+index_rabbit = tk.Entry(
+    input_rabbit, width=35, text="Quel est votre index ?",
+    validate="key", validatecommand=(num_valid, "%P")
+)
+submit_rabbit = tk.Button(
+    input_rabbit, text="Envoyer", command=affichage_rabbit
+)
+label_index_rabbit.grid(row=0, column=0, padx=10, pady=10)
+index_rabbit.grid(row=0, column=1, padx=10, pady=10)
+submit_rabbit.grid(row=0, column=2, padx=10, pady=10)
+resultat_rabbit = tk.Label(output_rabbit, bg=blue_ligth, wraplength=500)
+resultat_rabbit.pack(padx=10, pady=10)
 """ les éléments du menu """
 
 # Ajout des onglets
 menu.add(frame_fibonacci, text="Fibonacci")
 menu.add(frame_tribonacci, text="Tribonacci")
 menu.add(frame_lucas, text="Lucas Numbers")
+menu.add(frame_rabbit, text="Dying rabbits")
 
 base.mainloop()
