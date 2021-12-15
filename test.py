@@ -3,6 +3,7 @@ import unittest
 from package.fibonacci import fibonacci
 from package.tribonacci import tribonacci
 from package.lucas import lucas
+from package.rabbit import dying_rabbit
 
 class FibonacciTest(unittest.TestCase):
 
@@ -74,6 +75,30 @@ class LucasNumbersTest(unittest.TestCase):
         self.assertIsInstance(lucas("aaaa"), ValueError)
         self.assertIsInstance(lucas(-100), ValueError)
         self.assertIsInstance(lucas(500), ValueError)
+
+class DyingRabbitsTest(unittest.TestCase):
+
+    def test_vide_zeros_un_deux(self):
+        self.assertEqual(dying_rabbit(""), 1)
+        self.assertEqual(dying_rabbit(0), 1)
+        self.assertEqual(dying_rabbit(1), 1)
+        self.assertEqual(dying_rabbit(2), 1)
+
+    def test_basic(self):
+        self.assertEqual(dying_rabbit(3), 2)
+        self.assertEqual(dying_rabbit(6), 8)
+        self.assertEqual(dying_rabbit(14), 375)
+        self.assertEqual(dying_rabbit(20), 6673)
+        self.assertEqual(dying_rabbit(32), 2112571)
+        self.assertEqual(dying_rabbit(38),  37588502)
+        self.assertEqual(dying_rabbit(44),  668803781)
+        self.assertEqual(dying_rabbit(48),  4558212008)
+
+    def test_error(self):
+        self.assertIsInstance(dying_rabbit("-1"), ValueError)
+        self.assertIsInstance(dying_rabbit("aaaa"), ValueError)
+        self.assertIsInstance(dying_rabbit(-100), ValueError)
+        self.assertIsInstance(dying_rabbit(500), ValueError)
 
 if __name__ == '__main__':
     unittest.main()
