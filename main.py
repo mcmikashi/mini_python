@@ -5,6 +5,7 @@ from tkinter.constants import BOTH
 from package.fibonacci import fibonacci
 from package.validator import number_valid
 from package.tribonacci import tribonacci
+from package.lucas import lucas
 
 # Intialisation des couleurs
 blue_dark = "#1d3557"
@@ -95,10 +96,44 @@ submit_tribonacci.grid(row=0, column=2, padx=10, pady=10)
 resultat_tribonacci = tk.Label(output_tribonacci, bg=blue_ligth, wraplength=500)
 resultat_tribonacci.pack(padx=10, pady=10)
 
+""" les éléments de l'onglet lucas """
+
+# Label Frame lucas
+frame_lucas = tk.LabelFrame(menu)
+frame_lucas.pack()
+input_lucas = tk.LabelFrame(frame_lucas, bg=blue_medium)
+input_lucas.pack(pady=10)
+output_lucas = tk.LabelFrame(frame_lucas, bg=blue_ligth)
+output_lucas.pack(padx=10, pady=10, fill=BOTH, expand=True)
+
+
+# fonction affichage fibonacci
+def affichage_lucas():
+    nombre = index_lucas.get()
+    resultat = lucas(nombre)
+    resultat_lucas.config(text=resultat, bg=blue_very_ligth, font=25)
+
+# button,input et label lucas
+label_index_lucas = tk.Label(
+    input_lucas, text="Entrez un index entre 0 et 493"
+)
+index_lucas = tk.Entry(
+    input_lucas, width=35, text="Quel est votre index ?",
+    validate="key", validatecommand=(num_valid, "%P")
+)
+submit_lucas = tk.Button(
+    input_lucas, text="Envoyer", command=affichage_lucas
+)
+label_index_lucas.grid(row=0, column=0, padx=10, pady=10)
+index_lucas.grid(row=0, column=1, padx=10, pady=10)
+submit_lucas.grid(row=0, column=2, padx=10, pady=10)
+resultat_lucas = tk.Label(output_lucas, bg=blue_ligth, wraplength=500)
+resultat_lucas.pack(padx=10, pady=10)
+
 """ les éléments du menu """
 
 # Ajout des onglets
 menu.add(frame_fibonacci, text="Fibonacci")
 menu.add(frame_tribonacci, text="Tribonacci")
-
+menu.add(frame_lucas, text="Lucas Numbers")
 base.mainloop()
